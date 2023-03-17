@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  clean-arch-node-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    container_name: clean-arch-node-api
+    entrypoint: sh -c 'yarn install --frozen-lockfile && yarn start:debug'
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+      - ${PORT_DEBUG}:${PORT_DEBUG}
+    networks:
+      - clean-arch-net
+    volumes:
+      - '/app/node_modules'
+      - './:/app'
+
+  clean-arch-node-api-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: clean-arch-node-api-nginx
+    ports:
+      - ${NGINX_PORT}:${NGINX_PORT}
+    expose:
+      - ${NGINX_PORT}
+    networks:
+      - clean-arch-net
+    links:
+      - clean-arch-node-api
+
+networks:
+  clean-arch-net:

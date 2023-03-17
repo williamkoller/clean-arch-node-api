@@ -1,0 +1,15 @@
+FROM node:18.15.0-alpine
+
+WORKDIR /app
+
+RUN mkdir -p /app
+
+COPY package.json yarn.lock /app/
+
+RUN yarn cache clean \ 
+  rm node_modules/ \
+  yarn install --frozen-lockfile
+
+COPY . /app/
+
+EXPOSE 3005 9292
