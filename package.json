@@ -19,7 +19,7 @@
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "test:ci": "jest --coverage",
-    "test:cov": "jest --coverage && coveralls",
+    "test:cov": "jest --coverage && coveralls < coverage/lcov.info",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "test:staged": "jest --findRelatedTests ./src/**/**/**/*.spec.ts"
