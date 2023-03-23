@@ -6,7 +6,7 @@ import { AppController } from '@app/presentation/controllers/app/app.controller'
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
+      envFilePath: process.env['PATH_ENVIRONMENT'],
     }),
   ],
   controllers: [AppController],

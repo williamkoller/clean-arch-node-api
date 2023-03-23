@@ -7,7 +7,7 @@ services:
     container_name: clean-arch-node-api
     entrypoint: sh -c 'yarn install --frozen-lockfile && yarn start:debug'
     env_file:
-      - .env
+      - ${PATH_ENVIRONMENT}
     ports:
       - ${PORT}:${PORT}
       - ${PORT_DEBUG}:${PORT_DEBUG}
