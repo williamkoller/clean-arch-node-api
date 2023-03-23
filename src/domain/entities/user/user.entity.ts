@@ -7,17 +7,10 @@ export type UserProps = {
 };
 
 export class User {
-  private readonly id: string;
+  public readonly id: string;
   public props: Required<UserProps>;
   constructor(props: UserProps, id?: string) {
     this.id = id || randomUUID();
-
-    if (!props) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      this.props = {};
-      return;
-    }
 
     this.props = {
       ...props,
@@ -28,6 +21,10 @@ export class User {
     return new User(props, id);
   }
 
+  updateName(name: string) {
+    this.name = name;
+  }
+
   get name() {
     return this.props.name;
   }
@@ -36,12 +33,20 @@ export class User {
     this.props.name = value;
   }
 
+  updateEmail(email: string) {
+    this.email = email;
+  }
+
   get email() {
     return this.props.email;
   }
 
   private set email(value: string) {
     this.props.email = value;
+  }
+
+  updatePassword(password: string) {
+    this.password = password;
   }
 
   get password() {
