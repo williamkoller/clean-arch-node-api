@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-rm -rf ../dist; chown -R $(whoami):staff /home/william/development-node/clean-arch-node-api/dist/**; yarn build; yarn test; yarn test:cov;
+yarn test; yarn test:cov;
