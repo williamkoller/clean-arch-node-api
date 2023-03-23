@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-chown -R $USERNAME /dist; yarn build; yarn test; yarn test:cov;
+rm -rf ../dist; yarn build; yarn test; yarn test:cov;
