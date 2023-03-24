@@ -1,20 +1,17 @@
 {
-  "version": 2,
   "name": "clean-arch-node-api",
+  "version": 2,
   "public": true,
   "builds": [
     {
       "src": "src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "@app/(.*)",
-      "dest": "dist/main.js"
+      "dest": "/src/main.ts"
     }
   ]
 }
