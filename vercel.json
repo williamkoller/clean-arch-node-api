@@ -10,8 +10,9 @@
   ],
   "routes": [
     {
-      "src": "@app/*",
-      "dest": "src/*"
+      "src": "/(.*)",
+      "dest": "src/main.ts",
+      "continue": true
     }
   ]
 }
