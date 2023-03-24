@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "name": "clean-arch-node-api",
+  "public": true,
   "builds": [
     {
       "src": "src/main.ts",
@@ -9,8 +11,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/main.ts",
-      "methods": ["DELETE", "GET", "PATCH", "POST", "PUT"]
+      "dest": "src/main.ts"
     }
   ]
 }
