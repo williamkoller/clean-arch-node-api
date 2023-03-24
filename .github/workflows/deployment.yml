@@ -30,3 +30,18 @@ jobs:
       
       - name: Coveralls
         uses: coverallsapp/github-action@v1
+  
+  continuous-delivery:
+    runs-on: ubuntu-latest
+
+    needs: [continuous-integration]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          buildpack: 'https://github.com/zidizei/heroku-buildpack-tsc#v2.0'
