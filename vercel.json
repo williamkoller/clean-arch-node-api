@@ -13,7 +13,7 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "@app/(.*)",
       "dest": "dist/main.js"
     }
   ]
