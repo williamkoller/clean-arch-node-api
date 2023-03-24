@@ -1,8 +1,6 @@
 name: Snyk Security
 
 on:
-  push:
-    branches: ["main", develop]
   pull_request:
     branches: ["main"]
 
@@ -27,7 +25,7 @@ jobs:
 
       
       - name: Snyk Code test
-        run: snyk code test --sarif > snyk-code.sarif 
+        run: snyk code test --sarif > snyk-code.sarif
 
       - name: Snyk Open Source monitor
         run: snyk monitor --all-projects

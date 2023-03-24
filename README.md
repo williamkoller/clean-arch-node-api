@@ -2,6 +2,7 @@
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![Coverage Status](https://coveralls.io/repos/github/williamkoller/clean-arch-node-api/badge.svg?branch=develop)](https://coveralls.io/github/williamkoller/clean-arch-node-api?branch=develop)
 [![Clean Arch Node API - Deployment](https://github.com/williamkoller/clean-arch-node-api/actions/workflows/deployment.yml/badge.svg)](https://github.com/williamkoller/clean-arch-node-api/actions/workflows/deployment.yml)
+[![CodeQL](https://github.com/williamkoller/clean-arch-node-api/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/williamkoller/clean-arch-node-api/actions/workflows/github-code-scanning/codeql)
 
 # **Clean Architecture Nodejs API**
 
