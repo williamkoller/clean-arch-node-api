@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -9,6 +9,8 @@ declare const module: any;
 async function bootstrap() {
   const logger = new Logger('Main');
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
   const config = app.get<ConfigService>(ConfigService);
   const appUrl = config.get<number>('APP_URL');

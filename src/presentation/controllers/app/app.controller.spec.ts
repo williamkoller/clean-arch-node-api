@@ -17,7 +17,7 @@ describe('AppController', () => {
 
   it('should call method ok()', () => {
     jest.spyOn(controller, 'ok');
-    expect(controller.ok()).toEqual({ app: 'ok' });
+    expect(controller.ok()).toEqual({ status: 'ok' });
     expect(controller.ok).toBeCalledTimes(1);
   });
 });
