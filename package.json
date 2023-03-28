@@ -15,6 +15,7 @@
     "start:docker": "docker-compose up",
     "docker:debug": "nodemon -L --config nodemon-docker-debug.json",
     "debug": "nodemon -L --config nodemon.json",
+    "prepare": "husky install",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
