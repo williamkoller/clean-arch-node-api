@@ -38,7 +38,7 @@ export class User {
   }
 
   get email() {
-    return this.props.email;
+    return this.props.email.toLowerCase();
   }
 
   private set email(value: string) {

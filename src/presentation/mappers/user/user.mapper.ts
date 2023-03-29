@@ -6,7 +6,7 @@ export abstract class UserMapper {
     return {
       id: user.id,
       name: user.name,
-      email: user.email.toLowerCase(),
+      email: user.email,
       password: user.password,
     };
   }
