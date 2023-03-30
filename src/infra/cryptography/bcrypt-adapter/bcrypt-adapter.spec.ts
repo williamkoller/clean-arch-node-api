@@ -1,10 +1,14 @@
 import { BcryptAdapter } from './bcrypt-adapter';
 
+const makeSut = (): BcryptAdapter => {
+  return new BcryptAdapter();
+};
+
 describe('BcryptAdapter', () => {
-  it('should be hash()', () => {
-    const bcryptAdapter = new BcryptAdapter();
-    const hash = bcryptAdapter.hash('any_value');
-    jest.spyOn(bcryptAdapter, 'hash').mockImplementation(() => hash);
-    expect(bcryptAdapter.hash('any_value')).toEqual(hash);
+  it('should be hash()', async () => {
+    const sut = makeSut();
+    const hash = await sut.hash('any_value');
+    jest.spyOn(sut, 'hash').mockImplementation(() => Promise.resolve(hash));
+    expect(await sut.hash('any_value')).toEqual(hash);
   });
 });
