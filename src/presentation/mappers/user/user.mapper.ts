@@ -1,13 +1,15 @@
-import { User } from '@app/domain/entities/user/user.entity';
+import { UserModel } from '@app/infra/database/mongodb/models/user/user.model';
 import { UserOutput } from '@app/main/factories/usecases/user/add-user/add-user.usecase';
 
 export abstract class UserMapper {
-  static toUser(user: User): UserOutput {
+  public static toUser(model: UserModel): UserOutput {
     return {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      password: user.password,
+      id: model._id,
+      name: model.name,
+      email: model.email,
+      password: model.password,
+      createdAt: model.createdAt,
+      updatedAt: model.updatedAt,
     };
   }
 }
