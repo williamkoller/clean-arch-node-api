@@ -1,6 +1,6 @@
 import { Hasher } from '@app/data/protocols/cryptography/hasher';
 import { UserRepositoryInterface } from '@app/data/protocols/db/user/user.repository.interface';
-import { User } from '@app/domain/entities/user/user.entity';
+import { UserModel } from '@app/infra/database/mongodb/models/user/user.model';
 import { AddUserDTO } from '@app/presentation/dtos/user/add-user/add-user.dto';
 import { UserMapper } from '@app/presentation/mappers/user/user.mapper';
 import { ConflictException } from '@nestjs/common';
@@ -18,16 +18,12 @@ export class AddUserUseCase {
       throw new ConflictException();
     }
 
-    const user = User.create(data);
-
     const userWithBcrypt = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
+      ...data,
       password: await this.hasher.hash(data.password),
     };
 
-    const userCreated = await this.userRepo.create(userWithBcrypt as User);
+    const userCreated = await this.userRepo.create(userWithBcrypt as UserModel);
 
     return UserMapper.toUser(userCreated);
   }
@@ -38,4 +34,6 @@ export type UserOutput = {
   name: string;
   email: string;
   password: string;
+  createdAt: Date;
+  updatedAt: Date;
 };

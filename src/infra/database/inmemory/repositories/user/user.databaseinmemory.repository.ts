@@ -1,7 +1,6 @@
-import { UserRepositoryInterface } from '@app/data/protocols/db/user/user.repository.interface';
 import { User } from '@app/domain/entities/user/user.entity';
 
-export class UserDatabaseInMemoryRepository implements UserRepositoryInterface {
+export class UserDatabaseInMemoryRepository {
   users: User[] = [];
 
   async create(data: User): Promise<User> {
