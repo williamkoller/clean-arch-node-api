@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile.node
     container_name: clean-arch-node-api
+    depends_on:
+      - clean-arch-node-api-mongodb
     entrypoint: sh -c 'yarn install --frozen-lockfile && yarn start:debug'
     env_file:
       - ${PATH_ENVIRONMENT}
@@ -16,6 +18,16 @@ services:
     volumes:
       - '/app/node_modules'
       - './:/app'
+
+  clean-arch-node-api-mongodb:
+    image: mongo:latest
+    container_name: clean-arch-node-api-mongodb
+    ports:
+      - ${MONGODB_PORT}:${MONGODB_PORT}
+    networks:
+      - clean-arch-net
+    volumes:
+      - /mongodb-volume:/data/db
 
   clean-arch-node-api-nginx:
     build:
@@ -33,3 +45,6 @@ services:
 
 networks:
   clean-arch-net:
+
+volumes:
+  mongodb-volume:
