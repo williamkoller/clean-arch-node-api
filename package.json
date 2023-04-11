@@ -26,11 +26,11 @@
     "test:staged": "jest --findRelatedTests ./src/**/**/**/*.spec.ts"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^9.3.11",
     "@nestjs/config": "^2.3.1",
-    "@nestjs/core": "^9.0.0",
+    "@nestjs/core": "^9.3.11",
     "@nestjs/mongoose": "^9.2.2",
-    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/platform-express": "^9.3.11",
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
